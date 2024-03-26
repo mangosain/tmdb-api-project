@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Carousel, Container } from 'react-bootstrap';
 import config from '../../.env.local/config';
+import { useNavigate } from 'react-router-dom';
 
 import './home.styles.css';
 
@@ -21,10 +22,11 @@ const Home = () => {
         fetchNewMovies();
     }, []);
 
+    const navigate = useNavigate();
+
     const viewMoviePage = (movieId) => {
-        console.log(`Viewing movie page for movie ID: ${movieId}`);
-        // Implement logic to navigate to the movie page using React Router, for example:
-        // history.push(`/movies/${movieId}`);
+        //route to the movie details page
+        navigate(`/movie-details?q=${encodeURIComponent(movieId)}`);
       };
     
       const watchTrailer = (movieId) => {
@@ -47,7 +49,7 @@ const Home = () => {
                         <Carousel.Caption className='carousel-caption-container invert'>
                             <h1 className='carousel-caption-title'>{movie.title}</h1>
                             <div className="my-2">
-                                <button className="mx-2 view-more" onClick={() => viewMoviePage(movie.id)}>View Movie</button>
+                                <button className="mx-2 view-more" onClick={() => viewMoviePage(movie.id)}>View More</button>
                                 <button className="mx-2 watch-trailer" onClick={() => watchTrailer(movie.id)}>Watch Trailer</button>
                             </div>
                             <p className='carousel-caption-overview'>{movie.overview}</p>
