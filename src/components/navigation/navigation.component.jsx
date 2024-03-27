@@ -8,8 +8,8 @@ const Navigation = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
 
-  const handleSearch = (e) => {
-    e.preventDefault();
+  const handleSearch = (event) => {
+    event.preventDefault();
     // Navigate to search results page with the search query as a URL parameter
     navigate(`/search-results?q=${encodeURIComponent(searchQuery)}`);
     setSearchQuery('');

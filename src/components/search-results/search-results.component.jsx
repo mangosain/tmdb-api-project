@@ -6,6 +6,7 @@ import { useLocation } from 'react-router-dom';
 
 const SearchResults = () => {
     const searchQuery = new URLSearchParams(window.location.search).get('q');
+
     const location = useLocation();
 
     if(location.pathname === '/search-results') {
@@ -32,6 +33,7 @@ const SearchResults = () => {
 
     return (
         <Container>
+            <button onClick={() => {alert(searchQuery)}}>check</button>
             <h2 className="mt-3 mb-4">Search Results for "{searchQuery}"</h2>
             <Row xs={1} sm={2} md={3} lg={4} className="g-4">
                 {

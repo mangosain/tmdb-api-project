@@ -6,59 +6,58 @@ import { useNavigate } from 'react-router-dom';
 import './home.styles.css';
 
 const Home = () => {
-    const [newMovies, setNewMovies] = useState([]);
+    const [trendingItems, setTrendingItems] = useState([]);
 
     useEffect(() => {
-        const fetchNewMovies = async () => {
-            try {
-                const response = await fetch(`${config.baseURL}/movie/now_playing?api_key=${config.apiKey}`);
-                const data = await response.json();
-                setNewMovies(data.results);
-            } catch (error) {
-                console.error('Error fetching new movies:', error);
-            }
+        const fetchTrendingItems = async () => {
+        try {
+            const response = await fetch(`${config.baseURL}/trending/all/week?api_key=${config.apiKey}`);
+            const data = await response.json();
+            setTrendingItems(data.results);
+        } catch (error) {
+            console.error('Error fetching trending items:', error);
+        }
         };
-    
-        fetchNewMovies();
+
+        fetchTrendingItems();
     }, []);
 
     const navigate = useNavigate();
 
-    const viewMoviePage = (movieId) => {
-        //route to the movie details page
-        navigate(`/movie-details?q=${encodeURIComponent(movieId)}`);
-      };
+    const viewMore = (mediaId, mediaType) => {
+        // Route to the movie or TV show details page
+        navigate(`/movie-details?id=${encodeURIComponent(mediaId)}&type=${encodeURIComponent(mediaType)}`);
+    };
     
-      const watchTrailer = (movieId) => {
-        console.log(`Watching trailer for movie ID: ${movieId}`);
-        // Implement logic to open a modal with the trailer, for example:
-        // setOpenModal(true);
-        // setTrailerUrl(`https://www.youtube.com/watch?v=${trailerId}`);
-      };
+    const watchTrailer = (movieId) => {
+    console.log(`Watching trailer for movie ID: ${movieId}`);
+    // Implement logic to open a modal with the trailer, for example:
+    // setOpenModal(true);
+    // setTrailerUrl(`https://www.youtube.com/watch?v=${trailerId}`);
+    };
   
     return (
         <Container fluid>
-            <Carousel> {/* Set the height of the carousel container */}
-                {newMovies.map(movie => (
-                    <Carousel.Item key={movie.id}>
-                        <img
-                            className="d-block w-100 carousel-image"
-                            src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
-                            alt={movie.title}
-                        />
-                        <Carousel.Caption className='carousel-caption-container invert'>
-                            <h1 className='carousel-caption-title'>{movie.title}</h1>
-                            <div className="my-2">
-                                <button className="mx-2 view-more" onClick={() => viewMoviePage(movie.id)}>View More</button>
-                                <button className="mx-2 watch-trailer" onClick={() => watchTrailer(movie.id)}>Watch Trailer</button>
-                            </div>
-                            <p className='carousel-caption-overview'>{movie.overview}</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
+            <Carousel className='carousel-container'>
+                {trendingItems.map(item => (
+                <Carousel.Item key={item.id}>
+                    <img
+                    className="d-block w-100 carousel-image"
+                    src={`https://image.tmdb.org/t/p/original${item.backdrop_path}`}
+                    alt={item.title || item.name} // Use title for movies and name for TV shows
+                    />
+                    <Carousel.Caption className='carousel-caption-container invert'>
+                    <h1 className='carousel-caption-title'>{item.title || item.name}</h1>
+                    <div className="my-2">
+                        <button className="mx-2 view-more" onClick={() => viewMore(item.id, item.media_type)}>View More</button>
+                        <button className="mx-2 watch-trailer" onClick={() => watchTrailer(item)}>Watch Trailer</button>
+                    </div>
+                    <p className='carousel-caption-overview'>{item.overview}</p>
+                    </Carousel.Caption>
+                </Carousel.Item>
                 ))}
             </Carousel>
         </Container>
-
     );
 }
 
