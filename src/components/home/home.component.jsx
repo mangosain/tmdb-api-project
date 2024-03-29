@@ -45,6 +45,7 @@ const Home = () => {
       }, []);
 
     const navigate = useNavigate();
+    
     const viewMore = (mediaId, mediaType) => {
         navigate(`/movie-details?id=${encodeURIComponent(mediaId)}&type=${encodeURIComponent(mediaType)}`);
     };

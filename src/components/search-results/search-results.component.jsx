@@ -7,7 +7,6 @@ import MovieCard from '../card/card.component';
 
 const SearchResults = () => {
     const searchQuery = new URLSearchParams(window.location.search).get('q');
-
     const location = useLocation();
 
     if(location.pathname === '/search-results') {
