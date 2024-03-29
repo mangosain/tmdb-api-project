@@ -46,6 +46,9 @@ const SearchResults = () => {
                             imageUrl={item.poster_path ? `https://image.tmdb.org/t/p/w500${item.poster_path}` : 'https://via.placeholder.com/500x750?text=Image+Not+Found'}
                             title={item.title || item.name}
                             buttonText="View Details"
+                            imdb={item.vote_average}
+                            type={item.media_type}
+                            id={item.id}
                         />
                     ))
                 }

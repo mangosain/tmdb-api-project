@@ -79,9 +79,8 @@ const Home = () => {
             </Container>
 
             <Container fuild className='d-flex flex-wrap justify-content-center mt-5'>
-                <div className='d-flex justify-content-between align-items-baseline w-100 border-bottom mb-5'>
+                <div className='w-100 border-bottom mb-5'>
                     <h3 className='heading'>Popular</h3>
-                    <span onClick={() => {}}>See all</span>
                 </div>
                 <div className='d-flex flex-wrap justify-content-center gap-5'>
                     {movieState.popularMovies.map(item => (
@@ -99,9 +98,8 @@ const Home = () => {
             </Container>
 
             <Container fuild className='d-flex flex-wrap justify-content-center mt-5'>
-                <div className='d-flex justify-content-between align-items-baseline w-100 border-bottom mb-5'>
+                <div className='w-100 border-bottom mb-5'>
                     <h3 className='heading'>In Theatres</h3>
-                    <span onClick={() => {}}>See all</span>
                 </div>
                 <div className='d-flex flex-wrap justify-content-center gap-4 gap-lg-5'>
                     {movieState.nowPlayingMovies.map(item => (
