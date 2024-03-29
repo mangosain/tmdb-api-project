@@ -8,7 +8,7 @@ const Footer = () => {
         <Container>
             <Row>
             <Col xs={12} md={4}>
-                <div className="display-6 heading">Logo</div>
+                <div className="display-6 heading">Cinépix</div>
                 <p>Lorem ipsum dolor sit.</p>
             </Col>
             <Col xs={12} md={4} className="text-right mt-4 mt-md-0">
@@ -31,10 +31,10 @@ const Footer = () => {
         <Container className='mt-4 mt-md-0'>
             <div className='row'>
                 <div className='col-md-6'>
-                    <p className=''>Copyright 2024</p>
+                    <p className=''>Copyright &copy; 2024</p>
                 </div>
                 <div className='col-md-6 text-start text-md-end'>
-                    <p className=''>Design and Created by <span className='heading'>Manav Gosain</span></p>
+                    <p className=''>Designed and Created by <span className='heading'>Manav Gosain</span></p>
                 </div>
             </div>
         </Container>

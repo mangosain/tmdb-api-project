@@ -29,7 +29,7 @@ const Navigation = () => {
   return (
     <Navbar expand="lg" className="nav-bar-container">
       <Container fluid className='px-lg-3'>
-        <Navbar.Brand href="/"><span className='nav-logo'>Logo</span></Navbar.Brand>
+        <Navbar.Brand href="/"><span className='nav-logo'>Ciné</span>pix</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" style={{ color: 'white' }} />
         <Navbar.Collapse id="navbarScroll">
           <Nav className="me-auto my-2 my-lg-0 mx-auto">
