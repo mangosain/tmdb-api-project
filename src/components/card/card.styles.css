@@ -1,0 +1,32 @@
+.card-container {
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    width: 18rem;
+    border-radius: 15px;
+    margin: 10px auto;
+}
+
+.card-container img {
+    border-radius: 15px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.card-container .card-body {
+    padding: 1rem;
+}
+
+.card-container .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.card-container .card-text {
+    font-size: 1rem;
+    color: var(--accent-color);
+    text-align: center;
+}

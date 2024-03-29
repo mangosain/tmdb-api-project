@@ -47,7 +47,7 @@ const Navigation = () => {
             <input
               type="search"
               placeholder="Search..."
-              className="search-bar me-2"
+              className="search-bar me-2 w-100"
               aria-label="Search"
               value={searchQuery}
               onChange={handleChange}

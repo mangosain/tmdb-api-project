@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Container, Row, Col } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import config from '../../.env.local/config';
 import { useLocation } from 'react-router-dom';
+import MovieCard from '../card/card.component';
 
 
 const SearchResults = () => {
@@ -33,27 +34,16 @@ const SearchResults = () => {
 
     return (
         <Container>
-            <button onClick={() => {alert(searchQuery)}}>check</button>
-            <h2 className="mt-3 mb-4">Search Results for "{searchQuery}"</h2>
-            <Row xs={1} sm={2} md={3} lg={4} className="g-4">
+            <h2 className="mt-3 mb-4 border-bottom pb-2">Search Results for "{searchQuery}"</h2>
+            <Row xs={1} sm={2} md={3} lg={4} className="gap-5 mx-auto">
                 {
                     searchResults.map(item => (
-                    <Col key={item.id}>
-                        <Card className="h-100">
-                        <Card.Img
-                            variant="top"
-                            src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-                            style={{ height: '350px', objectFit: 'cover' }}
+                        <MovieCard
+                            key={item.id}
+                            imageUrl={item.poster_path ? `https://image.tmdb.org/t/p/w500${item.poster_path}` : 'https://via.placeholder.com/500x750'}
+                            title={item.title || item.name}
+                            buttonText="View Details"
                         />
-                        <Card.Body className="d-flex align-items-center justify-content-center">
-                            <Card.Text className="text-center opacity-0 position-absolute w-100 h-100 bg-dark text-light p-3">
-                            <strong>{item.title || item.name}</strong>
-                            <br />
-                            {item.overview}
-                            </Card.Text>
-                        </Card.Body>
-                        </Card>
-                    </Col>
                     ))
                 }
             </Row>
