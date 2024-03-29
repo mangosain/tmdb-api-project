@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row } from 'react-bootstrap';
-import config from '../../.env.local/config';
+import config from '../../config/config';
 import { useLocation } from 'react-router-dom';
 import MovieCard from '../card/card.component';
 

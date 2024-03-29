@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Carousel, Container } from 'react-bootstrap';
-import config from '../../.env.local/config';
+import config from '../../config/config';
 import { useNavigate } from 'react-router-dom';
 
 import './home.styles.css';

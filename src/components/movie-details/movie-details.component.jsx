@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Image, Button, Modal } from 'react-bootstrap';
-import config from '../../.env.local/config';
+import config from '../../config/config';
 
 import './movie-details.styles.css';
 import MovieCard from '../card/card.component';

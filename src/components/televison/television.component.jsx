@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
 
 import MovieCard from '../card/card.component';
-import config from '../../.env.local/config';
+import config from '../../config/config';
 
 const Television = () => {
   const [movies, setMovies] = useState([]);
