@@ -35,10 +35,7 @@ const MovieDetails = () => {
     
     return (
         <div className="movie-details">
-          <div className="backdrop p-5" style={{ backgroundImage: `linear-gradient(to bottom, rgba(51, 51, 51, 0.4), rgba(51, 51, 51, 1)), url(https://image.tmdb.org/t/p/original${movieDetails.backdrop_path})` }}>
-            <div className="overlay">
-                
-            </div>
+          <div className="backdrop p-2" style={{ backgroundImage: `linear-gradient(to bottom, rgba(51, 51, 51, 0.4), rgba(51, 51, 51, 1)), url(https://image.tmdb.org/t/p/original${movieDetails.backdrop_path})` }}>
             <Container className='main-info p-2 rounded-5'>
               <Row>
                 <Col xs={12} md={6}>

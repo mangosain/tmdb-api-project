@@ -30,7 +30,7 @@ const Navigation = () => {
     <Navbar expand="lg" className="nav-bar-container">
       <Container fluid className='px-lg-3'>
         <Navbar.Brand href="/"><span className='nav-logo'>Logo</span></Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Toggle aria-controls="navbarScroll" style={{ color: 'white' }} />
         <Navbar.Collapse id="navbarScroll">
           <Nav className="me-auto my-2 my-lg-0 mx-auto">
             <Link to={'/'} className={`mx-2 mx-lg-4 ${active === '/' ? 'active' : ''}`}>
@@ -39,7 +39,7 @@ const Navigation = () => {
             <Link to={'/movies'} className={`mx-2 mx-lg-4 ${active === '/movies' ? 'active' : ''}`}>
               Movies
             </Link>
-            <Link to={'/movies'} className={`mx-2 mx-lg-4 ${active === '/tv-shows' ? 'active' : ''}`}>
+            <Link to={'/television'} className={`mx-2 mx-lg-4 ${active === '/television' ? 'active' : ''}`}>
               Television
             </Link>
           </Nav>

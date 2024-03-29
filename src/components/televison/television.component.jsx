@@ -4,7 +4,7 @@ import ReactPaginate from 'react-paginate';
 import MovieCard from '../card/card.component';
 import config from '../../.env.local/config';
 
-const Movies = () => {
+const Television = () => {
   const [movies, setMovies] = useState([]);
   const [currentPage, setCurrentPage] = useState(0); // React-paginate uses 0-based indexing
   const [totalPages, setTotalPages] = useState(0);
@@ -13,7 +13,7 @@ const Movies = () => {
     const fetchMovies = async () => {
       try {
         const response = await fetch(
-          `${config.baseURL}/movie/popular?api_key=${config.apiKey}&page=${currentPage + 1}` // Increment page number by 1
+          `${config.baseURL}/tv/popular?api_key=${config.apiKey}&page=${currentPage + 1}` // Increment page number by 1
         );
         const data = await response.json();
         setMovies(data.results);
@@ -32,7 +32,7 @@ const Movies = () => {
 
   return (
     <div className='container'>
-      <h2 className='border-bottom pb-3 mt-4'>All Movies</h2>
+      <h2 className='border-bottom pb-3 mt-4'>All TV Shows</h2>
       <div className="row gap-2 mx-auto mt-4">
         {movies.map((item) => (
           <MovieCard
@@ -42,7 +42,7 @@ const Movies = () => {
             title={item.title || item.name}
             imdb={item.vote_average}
             buttonText="View More"
-            type="movie"
+            type="tv"
           />
         ))}
       </div>
@@ -61,4 +61,4 @@ const Movies = () => {
   );
 };
 
-export default Movies;
+export default Television;

@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 import './home.styles.css';
 import MovieCard from '../card/card.component';
+import Footer from '../footer/footer.component';
 
 const initialState = {
     trendingItems: [],
@@ -13,7 +14,7 @@ const initialState = {
 };
 
 const Home = () => {
-    const [state, setState] = useState(initialState);
+    const [movieState, setMovieState] = useState(initialState);
     useEffect(() => {
         const fetchData = async () => {
           try {
@@ -30,7 +31,7 @@ const Home = () => {
             const nowPLayingData = await nowPlayingResponse.json();
 
             // Set state with fetched data
-            setState({
+            setMovieState({
               trendingItems: trendingData.results,
               popularMovies: popularMoviesData.results.slice(10, 14),
               nowPlayingMovies: nowPLayingData.results.slice(0,4),
@@ -57,7 +58,7 @@ const Home = () => {
         <div>
             <Container fluid>
                 <Carousel className='carousel-container'>
-                    {state.trendingItems.map(item => (
+                    {movieState.trendingItems.map(item => (
                     <Carousel.Item key={item.id}>
                         <img
                         className="d-block w-100 carousel-image"
@@ -80,10 +81,10 @@ const Home = () => {
             <Container fuild className='d-flex flex-wrap justify-content-center mt-5'>
                 <div className='d-flex justify-content-between align-items-baseline w-100 border-bottom mb-5'>
                     <h3 className='heading'>Popular</h3>
-                    <a href="">See all</a>
+                    <span onClick={() => {}}>See all</span>
                 </div>
                 <div className='d-flex flex-wrap justify-content-center gap-5'>
-                    {state.popularMovies.map(item => (
+                    {movieState.popularMovies.map(item => (
                     <MovieCard
                         key={item.id}
                         id={item.id}
@@ -91,6 +92,7 @@ const Home = () => {
                         title={item.title || item.name}
                         imdb={item.vote_average}
                         buttonText='View More'
+                        type='movie'
                     />
                     ))}
                 </div>
@@ -99,10 +101,10 @@ const Home = () => {
             <Container fuild className='d-flex flex-wrap justify-content-center mt-5'>
                 <div className='d-flex justify-content-between align-items-baseline w-100 border-bottom mb-5'>
                     <h3 className='heading'>In Theatres</h3>
-                    <a href="">See all</a>
+                    <span onClick={() => {}}>See all</span>
                 </div>
                 <div className='d-flex flex-wrap justify-content-center gap-4 gap-lg-5'>
-                    {state.nowPlayingMovies.map(item => (
+                    {movieState.nowPlayingMovies.map(item => (
                     <MovieCard
                         key={item.id}
                         id={item.id}
@@ -110,10 +112,14 @@ const Home = () => {
                         title={item.title || item.name}
                         imdb={item.vote_average}
                         buttonText='View More'
+                        onViewMore={viewMore}
+                        type='movie'
                     />
                     ))}
                 </div>
             </Container>
+
+            <Footer />
         </div>
     );
 }
