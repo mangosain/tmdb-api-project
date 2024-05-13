@@ -1,8 +1,8 @@
 @import '../../index.css';
 
 .nav-bar-container {
-    width: 90%;
     margin: 0.6rem auto;
+    background-color: #333;
 }
 
 .nav-logo {

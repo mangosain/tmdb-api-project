@@ -27,7 +27,7 @@ const Navigation = () => {
   }, [location]);
 
   return (
-    <Navbar expand="lg" className="nav-bar-container">
+    <Navbar expand="lg" className="nav-bar-container sticky-top py-3">
       <Container fluid className='px-lg-3'>
         <Navbar.Brand href="/"><span className='nav-logo'>Ciné</span>pix</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" style={{ color: 'white' }} />
