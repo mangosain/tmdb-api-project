@@ -114,7 +114,7 @@ const MovieDetails = () => {
             </Container>
           </div>
           <Container className='mt-4'>
-            <h2 className='border-bottom pb-2'>Similar Movies</h2>
+            <h2 className='border-bottom pb-2'>Similar {type === 'movie' ? 'Movies' : 'Shows'}</h2>
             <Row className='gap-5'>
               {similarMovies.map(movie => (
                 <MovieCard
@@ -141,7 +141,6 @@ const MovieDetails = () => {
                   width="100%"
                   height="315"
                   src={`https://www.youtube.com/embed/${selectedTrailer}`}
-                  frameBorder="0"
                   allowFullScreen
                 />
               )}

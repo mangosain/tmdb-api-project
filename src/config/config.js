@@ -1,11 +1,10 @@
 // config.js
 const config = {
-    apiKey: '0814d5fcf7b65260d622d8d0c5db1cb4',
-    baseURL: 'https://api.themoviedb.org/3/',
-  };
-  
-  export default config;
-  
+  apiKey: "0814d5fcf7b65260d622d8d0c5db1cb4",
+  baseURL: "https://api.themoviedb.org/3",
+};
+
+export default config;
 
 //   Modifying the endpoint ${config.baseURL}/movie/now_playing?api_key=${config.apiKey} with different parameters or endpoints can return various data related to currently playing movies. Here's a breakdown of possible variations:
 

@@ -19,8 +19,10 @@ const Home = () => {
         const fetchData = async () => {
           try {
             // Fetch trending movies and TV shows
-            const trendingResponse = await fetch(`${config.baseURL}/trending/all/week?api_key=${config.apiKey}`);
+            const trendingResponse = await fetch(`${config.baseURL}/trending/all/week?api_key=${config.apiKey}&page=1`);
             const trendingData = await trendingResponse.json();
+
+            console.log(trendingData);
     
             // Fetch popular movies
             const popularMoviesResponse = await fetch(`${config.baseURL}/movie/popular?api_key=${config.apiKey}`);
